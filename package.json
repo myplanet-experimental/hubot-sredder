@@ -1,0 +1,21 @@
+{
+  "name": "hubot-sredder",
+  "version": "0.0.1",
+  "description": "A hubot script to help document SR&ED claims",
+  "main": "index.coffee",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/myplanet-experimental/hubot-sredder.git"
+  },
+  "dependencies": {
+    "google-sheets": "~> 0.0.4"
+  },
+  "keywords": [
+    "hubot",
+    "script",
+    "sred",
+    "documentation"
+  ],
+  "author": "Myplanet Digital, Inc.",
+  "license": "MIT"
+}
