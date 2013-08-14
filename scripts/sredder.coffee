@@ -24,3 +24,20 @@
 #
 # Author:
 #   Patrick Connolly (@patcon) - Myplanet Digital, Inc.
+
+module.exports = (robot) ->
+  robot.brain.on 'loaded', =>
+    robot.logger.info "Loading SRED data"
+    robot.brain.data.sredder ?= {}
+    robot.brain.data.sredder.projects ?= {}
+
+  robot.respond /sredder project add (.*)$/i, (msg) ->
+    project_name = msg.match[1]
+    next_id = Object.keys(robot.brain.data.sredder.projects).length+1
+    robot.brain.data.sredder.projects[next_id] = project_name
+    msg.send "Added project: #{robot.brain.data.sredder.projects[next_id]}"
+
+  robot.respond /sredder project list$/i, (msg) ->
+    msg.send "SR&ED projects:"
+    for key, item of robot.brain.data.sredder.projects
+      msg.send "#{key}. #{item}"
